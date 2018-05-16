@@ -4,7 +4,9 @@ Receta para despliegue de una estructura básica de automatización con Ansible
 
 # COMPONENTES
 
-![Arquitectura](https://drive.google.com/open?id=1MpWgV_qcVzA3sUJklutUZbt8UnQkr5bE)
+![Arquitectura](https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
+
+
 <kbd></kbd>Virtualbox
 
 <kbd></kbd>VM1: Centos 7.4 con Ansible + Jenkins

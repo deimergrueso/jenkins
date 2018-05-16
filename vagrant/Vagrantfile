@@ -1,0 +1,15 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.define "orquestador" do |orquestador|
+        orquestador.vm.box = "centos/7"
+        orquestador.vm.hostname = "orquestador"
+        orquestador.vm.network "private_network", ip: "10.0.2.2"
+    end
+
+    config.vm.define "test" do |test|
+        test.vm.box = "centos/7"
+        test.vm.hostname = "test"
+        test.vm.network "private_network", ip: "10.0.2.3"
+    end
+
+end

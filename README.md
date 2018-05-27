@@ -68,11 +68,11 @@ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && sudo python get-p
 
 **Instalar Ansible en VM1**
 
-sudo pip install ansible
+    -sudo pip install ansible
 
-mkdir labansible && cd labansible
+    -mkdir labansible && cd labansible
 
-sudo cp /etc/ansible/ansible.cfg ~/labansible/
+    -sudo cp /etc/ansible/ansible.cfg ~/labansible/
 
 **Editar el archivo host**
 

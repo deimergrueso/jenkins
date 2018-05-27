@@ -77,14 +77,19 @@ sudo cp /etc/ansible/ansible.cfg ~/labansible/
 **Editar el archivo host**
 
 sudo nano /etc/host y agregar las direcciones de los servidores remotos:
+
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
 192.168.122.10  orquestador.labansible.local
+
 192.168.122.20  testing.labansible.local
+
 192.168.122.30  produccion.labansible.local
 
-Generar las llaves SSH y copiarlas a cada uno de los host que pertenecen al laboratorio
+
+**Generar las llaves SSH y copiarlas a cada uno de los host que pertenecen al laboratorio**
 
 ssh-keygen
 

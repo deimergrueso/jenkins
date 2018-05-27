@@ -1,0 +1,42 @@
+---
+
+- hosts: orquestador
+  become: yes
+  gather_facts: no
+  tasks:
+
+    - name: Instalando Java JDK
+      yum: name=java state=present
+
+    - name: Instalando Unzip
+      yum: name=unzip state=latest
+
+    - name: Descargando  Repo Jenkins
+      get_url:
+        url: http://pkg.jenkins-ci.org/redhat/jenkins.repo
+        dest: /etc/yum.repos.d/
+        mode: 0644
+
+    - name: importando la llave del repositorio
+      action: shell rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+
+    - name: Instalar Jenkins
+      yum:
+        name: jenkins
+        state: present
+
+
+    - name: Servicio de Jenkins
+      service:
+        name: jenkins
+        state: started
+
+    - name: Habilitar puertos para Jenkins
+      command: firewall-cmd --zone=public --add-port=8080/tcp --permanent
+      command: firewall-cmd --zone=public --add-service=http --permanent
+      command: firewall-cmd --reload
+
+    - name: Instalar Ansible
+      yum:
+        name: ansible
+        state: present

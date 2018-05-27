@@ -1,0 +1,17 @@
+[all]
+orquestador.labansible.local
+testing.labansible.local
+produccion.labansible.local
+
+[test]
+testing.labansible.local
+
+[produccion]
+produccion.labansible.local
+
+[orquestador]
+orquestador.labansible.local
+
+[servidores]
+testing.labansible.local
+produccion.labansible.local

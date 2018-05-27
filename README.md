@@ -4,7 +4,7 @@ Receta para despliegue de una estructura básica de automatización con Ansible
 
 # COMPONENTES
 
-![Arquitectura](https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
+![Arquitectura] (https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
 
 
 <kbd></kbd>Virtualbox
@@ -46,7 +46,7 @@ NM: produccion.labansible.local
 
 Instalación de Ansible en Centos 7.4
 
-Requisitos:
+Pre-requisitos:
     -Usuario administrador
 
     -Git
@@ -56,10 +56,49 @@ Requisitos:
     -Conexión a internet
 
 
-
-
 # Scripts de despliegue con Ansible
 
+ - VM1: Instalacion de prerequisitos
+
+sudo yum -y update
+
+Instalar PIP
+
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && sudo python get-pip.py
+
+**Instalar Ansible en VM1**
+
+sudo pip install ansible
+
+mkdir labansible && cd labansible
+
+sudo cp /etc/ansible/ansible.cfg ~/labansible/
+
+**Editar el archivo host **
+
+sudo nano /etc/host y agregar las direcciones de los servidores remotos:
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.122.10  orquestador.labansible.local
+192.168.122.20  testing.labansible.local
+192.168.122.30  produccion.labansible.local
+
+Generar las llaves SSH y copiarlas a cada uno de los host que pertenecen al laboratorio
+
+ssh-keygen
+
+ssh-copy-id orquestador.labansbile.local
+
+ssh-copy-id testing.labansbile.local
+
+ssh-copy-id produccion.labansbile.local
+
+Agregar los permisos de ejecución sin inserción de password
+/etc/sudoers.d/ansible
+ansible ALL = (ALL) NOPASSWD: ALL
+
+**Instalar Jenkiins en el orquestador **
 # Scripts con Jenkins
 
 # Descarga y automatización del repositorio

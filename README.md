@@ -7,7 +7,7 @@ Receta para despliegue de una estructura básica de automatización con Ansible
 ![Arquitectura](https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
 
 
-<kbd></kbd>
+
 
 <kbd>VM1: Centos 7.4 con Ansible + Jenkins</kbd>
 
@@ -31,7 +31,7 @@ NM: testing.labansible.local
 
 Container: Bind 9 -- Servicio local de DNS
 
-<kbd></kbd>VM3: Centos 7.4 con Docker de Producción
+<kbd>VM3: Centos 7.4 con Docker de Producción</kbd>
 
 IP Add:  192.168.122.30/24
 
@@ -74,7 +74,7 @@ mkdir labansible && cd labansible
 
 sudo cp /etc/ansible/ansible.cfg ~/labansible/
 
-**Editar el archivo host **
+**Editar el archivo host**
 
 sudo nano /etc/host y agregar las direcciones de los servidores remotos:
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
@@ -98,7 +98,7 @@ Agregar los permisos de ejecución sin inserción de password
 /etc/sudoers.d/ansible
 ansible ALL = (ALL) NOPASSWD: ALL
 
-**Instalar Jenkiins en el orquestador **
+**Instalar Jenkiins en el orquestador**
 # Scripts con Jenkins
 
 # Descarga y automatización del repositorio

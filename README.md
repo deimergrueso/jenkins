@@ -4,12 +4,12 @@ Receta para despliegue de una estructura básica de automatización con Ansible
 
 # COMPONENTES
 
-![Arquitectura] (https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
+![Arquitectura](https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Arq_LAB.png)
 
 
-<kbd></kbd>Virtualbox
+<kbd></kbd>
 
-<kbd></kbd>VM1: Centos 7.4 con Ansible + Jenkins
+<kbd>VM1: Centos 7.4 con Ansible + Jenkins</kbd>
 
 IP Add: 192.168.122.10/24
 
@@ -19,7 +19,7 @@ DNS:  192.168.122.30/8.8.8.8
 
 NM: orquestador.labansible.local
 
-<kbd></kbd>VM2: Centos 7.4 con Docker de Pruebas
+<kbd>VM2: Centos 7.4 con Docker de Pruebas</kbd>
 
 IP Add:  192.168.122.20/24
 

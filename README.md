@@ -78,7 +78,7 @@ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && sudo python get-p
 
 sudo nano /etc/host y agregar las direcciones de los servidores remotos:
 
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+*127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
@@ -86,24 +86,38 @@ sudo nano /etc/host y agregar las direcciones de los servidores remotos:
 
 192.168.122.20  testing.labansible.local
 
-192.168.122.30  produccion.labansible.local
+192.168.122.30  produccion.labansible.local*
 
 
 **Generar las llaves SSH y copiarlas a cada uno de los host que pertenecen al laboratorio**
 
-ssh-keygen
+    -ssh-keygen
 
-ssh-copy-id orquestador.labansbile.local
+    -ssh-copy-id orquestador.labansbile.local
 
-ssh-copy-id testing.labansbile.local
+    -ssh-copy-id testing.labansbile.local
 
-ssh-copy-id produccion.labansbile.local
+    -ssh-copy-id produccion.labansbile.local
 
 Agregar los permisos de ejecución sin inserción de password
 /etc/sudoers.d/ansible
 ansible ALL = (ALL) NOPASSWD: ALL
 
-**Instalar Jenkiins en el orquestador**
+**Instalar Jenkiins**
+
+    -ansible-playbook jenkins_install.yml
+
+#Generar la clave de acceso a Jenkins
+Ingrese a la interfaz web del servidor para iniciar el asistente de instalación de Jenkins:
+![Jenkins_Install](https://raw.githubusercontent.com/deimergrueso/jenkins/master/Archivos%20varios/Asistente.png)
+
+    - sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+**Instalar Docker**
+    -ansible-playbook --syntax-check docker_install.yml
+    -ansible-playbook docker_install.yml
+
 # Scripts con Jenkins
 
 # Descarga y automatización del repositorio

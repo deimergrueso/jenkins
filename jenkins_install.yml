@@ -17,8 +17,8 @@
         dest: /etc/yum.repos.d/
         mode: 0644
 
-    - name: importando la llave del repositorio
-      action: shell rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+#    - name: importando la llave del repositorio
+#      action: shell rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 
     - name: Instalar Jenkins
       yum:
@@ -31,12 +31,15 @@
         name: jenkins
         state: started
 
-    - name: Habilitar puertos para Jenkins
-      command: firewall-cmd --zone=public --add-port=8080/tcp --permanent
-      command: firewall-cmd --zone=public --add-service=http --permanent
-      command: firewall-cmd --reload
+#Habilitando reglas en el firewall
+    - name: Habilitando puertos
+      firewalld: port=80/tcp zone=public permanent=true state=enabled immediate=yes
 
-    - name: Instalar Ansible
-      yum:
-        name: ansible
-        state: present
+    - name: Habilitando puertos
+      firewalld: port=8080/tcp zone=public permanent=true state=enabled immediate=yes
+
+#Descomentar solo si no se tiene ansible instalado en la maquina
+#    - name: Instalar Ansible
+#      yum:
+#        name: ansible
+#        state: present
